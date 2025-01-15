@@ -6,11 +6,17 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:10:32 by darkless12        #+#    #+#             */
-/*   Updated: 2025/01/14 19:06:09 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/01/15 18:33:13 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mlx.h>
+#include <stdlib.h>
+
+typedef struct	s_vars {
+	void	*mlx;
+	void	*win;
+}				t_vars;
 
 typedef struct	s_data {
 	void	*img;
@@ -19,6 +25,18 @@ typedef struct	s_data {
 	int		line_length;
 	int		endian;
 }				t_data;
+
+int	close_it(t_vars *vars)
+{
+	mlx_destroy_window(vars->mlx, vars->win);
+	exit(0);
+	return (0);
+}
+
+int	create_trgb(int t, int r, int g, int b)
+{
+	return (t << 24 | r << 16 | g << 8 | b);
+}
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
@@ -30,26 +48,27 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 
 int	main(void)
 {
-	void	*mlx;
-	void	*mlx_win;
+	t_vars	vars;
 	t_data	img;
 	int		i;
 
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 640, 480, "Hello world!");
-	img.img = mlx_new_image(mlx, 640, 480);
+	vars.mlx = mlx_init();
+	vars.win = mlx_new_window(vars.mlx, 640, 480, "Que raio?");
+	img.img = mlx_new_image(vars.mlx, 640, 480);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 								&img.endian);
 	i = 0;
-	while (i < 480)
+	while (i < 200)
 	{
-		my_mlx_pixel_put(&img, 5, i, 0x00FF0000);
-		my_mlx_pixel_put(&img, 10, i, 0x0000FF00);
-		my_mlx_pixel_put(&img, 15, i, 0x000000FF);
+		my_mlx_pixel_put(&img, 20, i + 20, create_trgb(0, 255, i, 0));
+		my_mlx_pixel_put(&img, 220, i + 20, create_trgb(0, 0, 255, i));
+		my_mlx_pixel_put(&img, i + 20, 20, create_trgb(0, i, 0, 255));
+		my_mlx_pixel_put(&img, i + 20, 220, create_trgb(0, i, 128, 128));
 		i++;
 	}
-	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-	mlx_loop(mlx);
+	mlx_put_image_to_window(vars.mlx, vars.win, img.img, 0, 0);
+	mlx_hook(vars.win, 2, 1L << 0, close_it, &vars);
+	mlx_loop(vars.mlx);
 }
 
 
