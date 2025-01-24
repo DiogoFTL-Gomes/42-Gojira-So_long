@@ -1,7 +1,9 @@
 NAME = so_long
 CC = cc
-CFLAGS = -Imlx_linux -O3 -Wall -Wextra -Werror
-SRCS = teste.c
+CFLAGS = -Imlx_linux -Iheaders -Wall -Wextra -Werror -g3
+SRCS =	sources/main.c \
+		get_next_line/get_next_line.c \
+		get_next_line/get_next_line_utils.c 
 OBJS = $(SRCS:.c=.o)
 MLX_DIR = mlx_linux
 MLX_LIB = $(MLX_DIR)/libmlx_Linux.a
@@ -9,7 +11,7 @@ MLX_LIB = $(MLX_DIR)/libmlx_Linux.a
 all: $(NAME)
 
 $(NAME): $(OBJS) $(MLX_LIB)
-	$(CC) $(OBJS) -L$(MLX_DIR) -lmlx_Linux -L/usr/lib -I/usr/include -lXext -lX11 -lm -lz -o $(NAME)
+	$(CC) $(OBJS) -L$(MLX_DIR) $(CFLAGS) -L/usr/lib -I/usr/include -lXext -lX11 -lm -lz -o $(NAME)
 
 $(MLX_LIB):
 	make -C $(MLX_DIR)
