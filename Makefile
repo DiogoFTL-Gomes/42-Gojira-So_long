@@ -2,6 +2,12 @@ NAME = so_long
 CC = cc
 CFLAGS = -Imlx_linux -Iheaders -Wall -Wextra -Werror -g3
 SRCS =	sources/main.c \
+		sources/map_loader.c \
+		\
+		libft/ft_strlen.c \
+		libft/ft_strlcat.c \
+		libft/ft_strjoin.c \
+		\
 		get_next_line/get_next_line.c \
 		get_next_line/get_next_line_utils.c 
 OBJS = $(SRCS:.c=.o)
@@ -25,7 +31,7 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
-	make fclean -C $(MLX_DIR)
+#	make fclean -C $(MLX_DIR)
 
 re: fclean all
 

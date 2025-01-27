@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/17 13:35:54 by ddiogo-f          #+#    #+#             */
-/*   Updated: 2025/01/27 14:08:36 by darkless12       ###   ########.fr       */
+/*   Created: 2024/10/28 13:50:39 by ddiogo-f          #+#    #+#             */
+/*   Updated: 2025/01/27 21:14:22 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef LIBFT_H
+# define LIBFT_H
 
-# include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 16
-# endif
 
-char	*fill_buffer(char buffer[BUFFER_SIZE + 1], int fd, char *line);
-char	*get_next_line(int fd);
-char	*strjoin_gnl(char const *line, char const *buffer);
-size_t	strlcat_gnl(char *temp, const char *src, size_t size);
-size_t	find_target(const char *str);
-void	clean_buffer(char buffer[BUFFER_SIZE + 1]);
+size_t	ft_strlen(const char *s);
+size_t	ft_strlcat(char *dst, const char *src, size_t size);
+char	*ft_strjoin(char const *s1, char const *s2);
 
 #endif
