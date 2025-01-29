@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 17:29:43 by darkless12        #+#    #+#             */
-/*   Updated: 2025/01/27 21:15:08 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/01/29 13:48:41 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@
 #	include <unistd.h>
 #	include "libft.h"
 
-// what I need to build a map
+// structure needed to build a map
 typedef struct s_map
 {
-	char	**map;
+	char	**plant;
+	int		rows;
+	int		cols;
 } t_map;
 
 // main struct that will go all over the place
@@ -33,5 +35,7 @@ typedef struct s_all
 
 int	init_all(t_all *all);
 int	map_loader(t_all *all,char *fname);
+int	check_name(char *fname);
+int	got_error(char *msg);
 
 #endif
