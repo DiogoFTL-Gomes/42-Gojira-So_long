@@ -1,6 +1,6 @@
 NAME = so_long
 CC = cc
-CFLAGS = -Imlx_linux -Iheaders -Wall -Wextra -Werror -g3
+CFLAGS = -Imlx_linux -Iheaders -Wall -Wextra -Werror -g3 
 SRCS =	sources/errors.c \
 		sources/initializers.c \
 		sources/main.c \
