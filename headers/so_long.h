@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 17:29:43 by darkless12        #+#    #+#             */
-/*   Updated: 2025/01/29 14:37:27 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/01/29 17:47:00 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,18 @@
 #	include "get_next_line.h"
 
 // structure needed to build a map
-typedef struct s_map
+typedef struct s_plan
 {
-	char	**plant;
+	char	**map;
 	int		rows;
 	int		cols;
-} t_map;
+} t_plan;
 
 // main struct that will go all over the place
 // connects all game information
 typedef struct s_all
 {
-	struct s_map	map;
+	struct s_plan	plan;
 } t_all;
 
 int	init_all(t_all *all);

@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:33:05 by darkless12        #+#    #+#             */
-/*   Updated: 2025/01/29 15:34:58 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/01/29 17:48:33 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int	check_fname(t_all *all, char *fname)
 		line = get_next_line(fd);
 		if (i++ == 0 || line != NULL)
 		{
-			all->map.cols = ft_strlen(line);
-			all->map.rows++;
+			all->plan.cols = ft_strlen(line);
+			all->plan.rows++;
 		}
 	}
 	close(fd);
