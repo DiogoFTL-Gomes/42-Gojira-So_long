@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 17:29:43 by darkless12        #+#    #+#             */
-/*   Updated: 2025/01/29 17:47:00 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/01/30 21:07:39 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ typedef struct s_plan
 	char	**map;
 	int		rows;
 	int		cols;
+	int		player;
+	int		colect;
+	int		exit;
 } t_plan;
 
 // main struct that will go all over the place
@@ -35,9 +38,8 @@ typedef struct s_all
 } t_all;
 
 int	init_all(t_all *all);
-int	map_loader(t_all *all,char *fname);
-int	check_name(char *fname);
-int	check_fname(t_all *all, char *fname);
+int	map_loader(t_all *all, char *fname);
+int	check_file_name(t_all *all, char *fname);
 int	got_error(char *msg);
 
 #endif

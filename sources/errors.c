@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 10:02:30 by darkless12        #+#    #+#             */
-/*   Updated: 2025/01/29 14:34:41 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/01/30 21:07:33 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ int	got_error(char *msg)
 	write(2, "Error\n", 6);
 	write(2, msg, ft_strlen(msg));
 	write(2, "\n", 1);
-	return (0);
+	return (1);
 }
