@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 14:18:53 by darkless12        #+#    #+#             */
-/*   Updated: 2025/01/30 21:07:26 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/01/31 13:47:39 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	load_map(t_all *all, char *fname)
 	all->plan.map[all->plan.rows] = 0;
 	while (i < all->plan.rows)
 	{
+		
 		i++;
 	}
 	close(fd);
