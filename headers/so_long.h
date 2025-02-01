@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 17:29:43 by darkless12        #+#    #+#             */
-/*   Updated: 2025/02/01 12:41:20 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/01 18:33:30 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,11 @@ typedef struct s_all
 	struct s_plan	plan;
 } t_all;
 
-int	init_all(t_all *all);
-int	map_loader(t_all *all, char *fname);
-int	check_file_name(t_all *all, char *fname);
-int	got_error(char *msg);
-int	find_ncols(char *line);
+int		init_all(t_all *all);
+int		map_loader(t_all *all, char *fname);
+int		check_file_name(t_all *all, char *fname);
+int		got_error(char *msg);
+int		find_ncols(char *line);
+void	clean_map(t_all *all);
 
 #endif

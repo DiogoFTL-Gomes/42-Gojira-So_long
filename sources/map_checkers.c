@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:33:05 by darkless12        #+#    #+#             */
-/*   Updated: 2025/02/01 12:53:08 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/01 18:09:02 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	check_data(t_all *all)
 		if (all->plan.cols < 3 || all->plan.rows < 3)
 			errors += got_error("Map has too few lines/columns");
 	}
+	printf("%d errors\n", errors);
 	return (errors);
 }
 //verificar tamanho das linhas, encontrar nº cols, verificar se é rectangulo

@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 14:18:53 by darkless12        #+#    #+#             */
-/*   Updated: 2025/02/01 12:34:37 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/01 18:16:28 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	load_map(t_all *all, char *fname)
 	char	*line;
 	int		i;
 
+	printf("loading");
 	i = 0;
 	line = ft_strjoin("maps/", fname);
 	fd = open(line, O_RDONLY);
@@ -31,7 +32,7 @@ int	load_map(t_all *all, char *fname)
 	all->plan.map[all->plan.rows] = 0;
 	while (i < all->plan.rows)
 	{
-		
+		all->plan.map[i] = get_next_line(fd);
 		i++;
 	}
 	close(fd);
@@ -41,10 +42,9 @@ int	load_map(t_all *all, char *fname)
 //chama funcoes que carregam o mapa
 int	map_loader(t_all *all, char *fname)
 {
-	if (!(check_file_name(all, fname)))
-		return (0);
-	printf("got here!!\n");
-	// if (!(load_map(all, fname)))
-	// 	return (0);
+	if (check_file_name(all, fname))
+		return (1);
+	if (load_map(all, fname))
+		return (1);
 	return (0);
 }
