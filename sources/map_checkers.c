@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:33:05 by darkless12        #+#    #+#             */
-/*   Updated: 2025/01/31 18:51:06 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/01 12:53:08 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	check_data(t_all *all)
 		errors += got_error("Map characters must be 01CPE");
 	if (all->plan.cols == -1)
 		errors += got_error("Map shape is not rectangular");
-	if (all->plan.cols > -1 || all->plan.rows > -1)
+	if (all->plan.cols > -1 && all->plan.rows > -1)
 	{
 		if (all->plan.cols * all->plan.rows < 15)
 			errors += got_error("Map area is too small");
@@ -45,8 +45,8 @@ void	check_line(t_all *all, char *line)
 
 	tmp = "01CPE";
 	if (all->plan.cols == 0)
-		all->plan.cols = (int)ft_strlen(line);
-	else if (all->plan.cols != (int)ft_strlen(line) && all->plan.cols >= 0)
+		all->plan.cols = find_ncols(line);
+	else if (all->plan.cols != find_ncols(line) && all->plan.cols >= 0)
 		all->plan.cols = -1;
 	if (all->plan.rows > -1)
 		all->plan.rows++;

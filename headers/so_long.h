@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 17:29:43 by darkless12        #+#    #+#             */
-/*   Updated: 2025/01/30 21:07:39 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/01 12:41:20 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,6 @@ int	init_all(t_all *all);
 int	map_loader(t_all *all, char *fname);
 int	check_file_name(t_all *all, char *fname);
 int	got_error(char *msg);
+int	find_ncols(char *line);
 
 #endif
