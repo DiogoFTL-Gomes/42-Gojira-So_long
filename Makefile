@@ -2,6 +2,7 @@ NAME = so_long
 CC = cc
 CFLAGS = -Imlx_linux -Iheaders -Wall -Wextra -Werror -g3 
 SRCS =	sources/error_cleanup.c \
+		sources/game_start.c \
 		sources/initializers.c \
 		sources/main.c \
 		sources/map_checkers.c \
