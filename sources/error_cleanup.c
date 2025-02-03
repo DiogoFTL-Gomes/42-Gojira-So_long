@@ -6,21 +6,21 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 10:02:30 by darkless12        #+#    #+#             */
-/*   Updated: 2025/02/03 18:31:23 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/03 21:13:58 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 //limpa strings de **map
-void	clean_map(t_all *all)
+void	clean_array(char **array)
 {
 	int	i;
 
 	i = 0;
-	while (all->plan.map[i] != 0)
-		free(all->plan.map[i++]);
-	free(all->plan.map);
+	while (array[i] != 0)
+		free(array[i++]);
+	free(array);
 }
 
 //imprime erros
