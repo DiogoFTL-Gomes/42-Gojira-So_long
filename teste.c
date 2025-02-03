@@ -6,33 +6,33 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:10:32 by darkless12        #+#    #+#             */
-/*   Updated: 2025/01/22 14:48:14 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/03 15:29:04 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mlx.h>
-#include <stdio.h>
+// #include <mlx.h>
+// #include <stdio.h>
 
-typedef struct	s_vars {
-	void	*mlx;
-	void	*win;
-}				t_vars;
+// typedef struct	s_vars {
+// 	void	*mlx;
+// 	void	*win;
+// }				t_vars;
 
-int	key_hook(void)
-{
-	printf("Hello from key_hook!\n");
-	return (0);
-}
+// int	key_hook(void)
+// {
+// 	printf("Hello from key_hook!\n");
+// 	return (0);
+// }
 
-int	main(void)
-{
-	t_vars	vars;
+// int	main(void)
+// {
+// 	t_vars	vars;
 
-	vars.mlx = mlx_init();
-	vars.win = mlx_new_window(vars.mlx, 640, 480, "Hello world!");
-	mlx_key_hook(vars.win, key_hook, &vars);
-	mlx_loop(vars.mlx);
-}
+// 	vars.mlx = mlx_init();
+// 	vars.win = mlx_new_window(vars.mlx, 640, 480, "Hello world!");
+// 	mlx_key_hook(vars.win, key_hook, &vars);
+// 	mlx_loop(vars.mlx);
+// }
 
 // #include <mlx.h>
 // #include <stdlib.h>

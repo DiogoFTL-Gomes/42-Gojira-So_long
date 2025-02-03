@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:33:05 by darkless12        #+#    #+#             */
-/*   Updated: 2025/02/01 18:09:02 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/03 18:33:50 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,12 @@ int	check_data(t_all *all)
 	printf("%d errors\n", errors);
 	return (errors);
 }
+
 //verificar tamanho das linhas, encontrar nº cols, verificar se é rectangulo
 void	check_line(t_all *all, char *line)
 {
-	char *tmp;
-	int	 i;
+	char	*tmp;
+	int		i;
 
 	tmp = "01CPE";
 	if (all->plan.cols == 0)
@@ -107,7 +108,7 @@ int	check_file_name(t_all *all, char *fname)
 	j = 0;
 	while (fname[i] != 0)
 		i++;
-	while (j < 4 )
+	while (j < 4)
 	{
 		if (fname[i - 4] != ext[j] || i < 5)
 			return (got_error("File extension must be .ber"));
