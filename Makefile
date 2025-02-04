@@ -2,11 +2,11 @@ NAME = so_long
 CC = cc
 CFLAGS = -Imlx_linux -Iheaders -Wall -Wextra -Werror -g3 
 SRCS =	sources/error_cleanup.c \
-		sources/game_start.c \
 		sources/initializers.c \
 		sources/main.c \
 		sources/map_checkers.c \
 		sources/map_loader.c \
+		sources/map_nav.c \
 		\
 		libft/ft_strlen.c \
 		libft/ft_strlcat.c \
@@ -17,6 +17,8 @@ SRCS =	sources/error_cleanup.c \
 OBJS = $(SRCS:.c=.o)
 MLX_DIR = mlx_linux
 MLX_LIB = $(MLX_DIR)/libmlx_Linux.a
+
+# sources/game_start.c \
 
 all: $(NAME)
 

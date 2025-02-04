@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:33:05 by darkless12        #+#    #+#             */
-/*   Updated: 2025/02/03 21:14:00 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/04 20:19:50 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,28 +19,27 @@ int	check_data(t_all *all)
 
 	errors = 0;
 	if (all->plan.player != 1)
-		errors += got_error("Map needs only 1 player");
+		errors = got_error("Map needs only 1 player");
 	if (all->plan.colect < 1)
-		errors += got_error("Map must have at least 1 collectible");
+		errors = got_error("Map must have at least 1 collectible");
 	if (all->plan.exit != 1)
-		errors += got_error("Map must have just 1 exit");
+		errors = got_error("Map must have just 1 exit");
 	if (all->plan.rows == -1)
-		errors += got_error("Map characters must be 01CPE");
+		errors = got_error("Map characters must be 01CPE");
 	if (all->plan.cols == -1)
-		errors += got_error("Map shape is not rectangular");
+		errors = got_error("Map shape is not rectangular");
 	if (all->plan.cols > -1 && all->plan.rows > -1)
 	{
 		if (all->plan.cols * all->plan.rows < 15)
-			errors += got_error("Map area is too small");
+			errors = got_error("Map area is too small");
 		if (all->plan.cols < 3 || all->plan.rows < 3)
-			errors += got_error("Map has too few lines/columns");
+			errors = got_error("Map has too few lines/columns");
 	}
-	printf("%d errors\n", errors);
 	return (errors);
 }
 
 //verificar tamanho das linhas, encontrar nº cols, verificar se é rectangulo
-void	check_line(t_all *all, char *line)
+void	read_line(t_all *all, char *line)
 {
 	char	*tmp;
 	int		i;
@@ -90,7 +89,7 @@ int	check_file(t_all *all, char *fname)
 			free(line);
 		line = get_next_line(fd);
 		if (i++ == 0 || line != NULL)
-			check_line(all, line);
+			read_line(all, line);
 	}
 	close(fd);
 	return (check_data(all));
