@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 12:07:10 by darkless12        #+#    #+#             */
-/*   Updated: 2025/02/04 20:19:47 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/05 11:22:55 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	fill_map_nav(t_all *all, char **tester, int x, int y)
 	if (tester[y][x] == '1' || tester[y][x] == 'X')
 		return;
 	tester[y][x] = 'X';
-	for (int i = 0; i < all->plan.rows; i++)	// remover
-		printf("%s\n", tester[i]);				// remover
-	printf("\n");								// remover
+	// for (int i = 0; i < all->plan.rows; i++)	// remover
+	// 	printf("%s\n", tester[i]);				// remover
+	// printf("\n");								// remover
 	fill_map_nav(all, tester, x + 1, y);
 	fill_map_nav(all, tester, x - 1, y);
 	fill_map_nav(all, tester, x, y + 1);
@@ -104,13 +104,12 @@ int	check_nav(t_all *all)
 		if (!tester[i])
 			return (got_error("Failed malloc of array line copy"));
 		j = 0;
-		while (j < all->plan.cols)
-		{
-			tester[i][j] = all->plan.map[i][j];
-			j++;
-		}
-		tester[i][j] = 0;
+		while (j++ < all->plan.cols)
+			tester[i][j - 1] = all->plan.map[i][j - 1];
+		tester[i][all->plan.cols] = 0;
 		i++;
 	}
-	return (check_border(all, tester));
+	i = check_border(all, tester);
+	clean_array(tester);
+	return (i);
 }

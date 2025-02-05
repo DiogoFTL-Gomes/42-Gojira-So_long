@@ -2,6 +2,7 @@ NAME = so_long
 CC = cc
 CFLAGS = -Imlx_linux -Iheaders -Wall -Wextra -Werror -g3 
 SRCS =	sources/error_cleanup.c \
+		sources/game_start.c \
 		sources/initializers.c \
 		sources/main.c \
 		sources/map_checkers.c \
@@ -18,12 +19,11 @@ OBJS = $(SRCS:.c=.o)
 MLX_DIR = mlx_linux
 MLX_LIB = $(MLX_DIR)/libmlx_Linux.a
 
-# sources/game_start.c \
 
 all: $(NAME)
 
 $(NAME): $(OBJS) $(MLX_LIB)
-	$(CC) $(OBJS) -L$(MLX_DIR) $(CFLAGS) -L/usr/lib -I/usr/include -lXext -lX11 -lm -lz -o $(NAME)
+	$(CC) $(OBJS) $(MLX_LIB) $(CFLAGS) -L/usr/lib -I/usr/include -lXext -lX11 -lm -lz -o $(NAME)
 
 $(MLX_LIB):
 	make -C $(MLX_DIR)
@@ -37,7 +37,6 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
-#	make fclean -C $(MLX_DIR)
 
 re: fclean all
 

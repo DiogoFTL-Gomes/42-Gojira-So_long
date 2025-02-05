@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 15:49:25 by darkless12        #+#    #+#             */
-/*   Updated: 2025/02/04 20:28:27 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/05 13:54:45 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,11 @@ int	main(int argc, char *argv[])
 	}
 	if (init_all(all) || map_loader(all, argv[1]))
 	{
-		clean_array(all->plan.map);
-		free(all);
+		clean_all(all);
 		return (1);
 	}
-	//game_start(all);
-	free(all);
+	game_start(all);
+	clean_all(all);
 	return (0);
 }
 

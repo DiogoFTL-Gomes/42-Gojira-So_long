@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 14:18:53 by darkless12        #+#    #+#             */
-/*   Updated: 2025/02/04 20:19:51 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/05 11:21:57 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ int	load_map(t_all *all, char *fname)
 		i++;
 	}
 	close(fd);
-	for (int i = 0; i < all->plan.rows; i++)	//isto tem que sair
-		printf("%s", all->plan.map[i]);			//isto tb
-	printf("\n");								//isto tb
+	// for (int i = 0; i < all->plan.rows; i++)	//isto tem que sair
+	// 	printf("%s", all->plan.map[i]);			//isto tb
+	// printf("\n");								//isto tb
 	return (0);
 }
 

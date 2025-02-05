@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 16:11:22 by darkless12        #+#    #+#             */
-/*   Updated: 2025/02/03 18:31:59 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/05 11:20:42 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ int	init_map(t_all *all)
 //inicia struct do mlx
 int	init_render(t_all *all)
 {
-	all->render.mlx = 0;
-	all->render.win = 0;
+	all->render.mlx = NULL;
+	all->render.win = NULL;
 	return (0);
 }
 

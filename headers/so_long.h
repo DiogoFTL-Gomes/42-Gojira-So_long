@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 17:29:43 by darkless12        #+#    #+#             */
-/*   Updated: 2025/02/04 17:43:02 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/05 14:08:03 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include <unistd.h>
 # include "libft.h"
 # include "get_next_line.h"
-# include "../mlx_linux/mlx.h"
-# include "../mlx_linux/mlx_int.h"
+# include "mlx.h"
+# include "mlx_int.h"
 
 // structure needed to build a map
 typedef struct s_plan
@@ -32,6 +32,7 @@ typedef struct s_plan
 	int		exit;
 }	t_plan;
 
+// struct for mlx
 typedef struct s_render
 {
 	void	*mlx;
@@ -54,5 +55,6 @@ int		find_ncols(char *line);
 int		game_start(t_all *all);
 int		check_nav(t_all *all);
 void	clean_array(char **array);
+void	clean_all(t_all *all);
 
 #endif
