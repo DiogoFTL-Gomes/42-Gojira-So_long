@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 17:29:43 by darkless12        #+#    #+#             */
-/*   Updated: 2025/02/05 14:08:03 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/06 14:41:36 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,29 @@ typedef struct s_plan
 }	t_plan;
 
 // struct for mlx
-typedef struct s_render
+typedef struct s_graph
 {
 	void	*mlx;
 	void	*win;
-}	t_render;
+}	t_graph;
+
+typedef struct s_tile
+{
+	void	*img;
+	void	*addr;
+}	t_tile;
 
 // main struct that will go all over the place
 // connects all game information
 typedef struct s_all
 {
-	struct s_plan	plan;
-	struct s_render	render;
+	t_plan		plan;
+	t_graph		graph;
+	t_tile		floor;
+	t_tile		wall;
+	t_tile		player;
+	t_tile		nuke;
+	t_tile		exit;
 }	t_all;
 
 int		init_all(t_all *all);

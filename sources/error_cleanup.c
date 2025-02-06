@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 10:02:30 by darkless12        #+#    #+#             */
-/*   Updated: 2025/02/05 15:17:19 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/06 15:39:16 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,7 @@ void	clean_all(t_all *all)
 {
 	if (all->plan.map)
 		clean_array(all->plan.map);
-	if (all->render.mlx)
-		free(all->render.mlx);
-	// if (all->render.win)
-	// 	free(all->render.win);
+	if (all->graph.mlx)
+		free(all->graph.mlx);
 	free(all);
 }
