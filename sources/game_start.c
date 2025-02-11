@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 18:33:55 by darkless12        #+#    #+#             */
-/*   Updated: 2025/02/06 20:14:05 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/11 16:58:22 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int	close_it(int keycode, t_all *all)
 	if (keycode == 0xff1b)
 	{
 		//destruir aqui imagens
-		mlx_destroy_window(all->graph.mlx, all->graph.win);
-		mlx_destroy_display(all->graph.mlx);
+		mlx_destroy_window(all->mlx.ptr, all->mlx.win);
+		mlx_destroy_display(all->mlx.ptr);
 		clean_all(all);
 		exit (1);
 	}
@@ -27,10 +27,12 @@ int	close_it(int keycode, t_all *all)
 
 int	game_start(t_all *all)
 {
-	all->graph.mlx = mlx_init();
-	all->graph.win = mlx_new_window(all->graph.mlx, all->plan.cols * 64, \
-		all->plan.rows * 64, "So Long");
-	mlx_hook(all->graph.win, 2, 1L << 0, close_it, all);
-	mlx_loop(all->graph.mlx);
+	all->mlx.ptr = mlx_init();
+	all->mlx.win = mlx_new_window(all->mlx.ptr, all->plan.col * 64, \
+		all->plan.row * 64, "So Long");
+	load_textures(all);
+	render_frames(all);
+	mlx_hook(all->mlx.win, 2, 1L << 0, close_it, all);
+	mlx_loop(all->mlx.ptr);
 	return (0);
 }

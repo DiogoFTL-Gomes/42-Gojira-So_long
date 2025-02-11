@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 17:29:43 by darkless12        #+#    #+#             */
-/*   Updated: 2025/02/06 14:41:36 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/11 17:41:02 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,35 +25,57 @@
 typedef struct s_plan
 {
 	char	**map;
-	int		rows;
-	int		cols;
+	int		row;
+	int		col;
 	int		player;
 	int		colect;
 	int		exit;
 }	t_plan;
 
 // struct for mlx
-typedef struct s_graph
+typedef struct s_mlx
 {
-	void	*mlx;
+	void	*ptr;
 	void	*win;
-}	t_graph;
 
+	void	*img;
+	void	*addr;
+	int		bpp;
+	int		endian;
+	int		line;
+}	t_mlx;
+
+//struct for tile management
 typedef struct s_tile
 {
 	void	*img;
 	void	*addr;
+
+	int		bpp;
+	int		endian;
+
+	int		l;
+	int		h;
 }	t_tile;
+
+typedef struct s_game
+{
+	int	x;
+	int	y;
+	int nuke;
+	int last;
+}	t_game;
 
 // main struct that will go all over the place
 // connects all game information
 typedef struct s_all
 {
 	t_plan		plan;
-	t_graph		graph;
+	t_mlx		mlx;
+	t_game		game;
 	t_tile		floor;
 	t_tile		wall;
-	t_tile		player;
+	t_tile		godjira;
 	t_tile		nuke;
 	t_tile		exit;
 }	t_all;
@@ -67,5 +89,7 @@ int		game_start(t_all *all);
 int		check_nav(t_all *all);
 void	clean_array(char **array);
 void	clean_all(t_all *all);
+void	load_textures(t_all *all);
+void	render_frames(t_all *all);
 
 #endif

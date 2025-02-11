@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 14:18:53 by darkless12        #+#    #+#             */
-/*   Updated: 2025/02/05 11:21:57 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/11 16:24:29 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ int	load_map(t_all *all, char *fname)
 	if (fd < 0)
 		return (got_error("File not found"));
 	free(line);
-	all->plan.map = malloc(sizeof(char *) * (all->plan.rows + 1));
+	all->plan.map = malloc(sizeof(char *) * (all->plan.row + 1));
 	if (!all->plan.map)
 		return (got_error("Map array failed to initialize"));
-	all->plan.map[all->plan.rows] = 0;
-	while (i < all->plan.rows)
+	all->plan.map[all->plan.row] = 0;
+	while (i < all->plan.row)
 	{
 		all->plan.map[i] = get_next_line(fd);
 		i++;

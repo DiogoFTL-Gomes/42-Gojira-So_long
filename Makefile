@@ -8,6 +8,8 @@ SRCS =	sources/error_cleanup.c \
 		sources/map_checkers.c \
 		sources/map_loader.c \
 		sources/map_nav.c \
+		sources/load_textures.c \
+		sources/render_frames.c \
 		\
 		libft/ft_strlen.c \
 		libft/ft_strlcat.c \
@@ -23,7 +25,7 @@ MLX_LIB = $(MLX_DIR)/libmlx_Linux.a
 all: $(NAME)
 
 $(NAME): $(OBJS) $(MLX_LIB)
-	$(CC) $(OBJS) $(MLX_LIB) $(CFLAGS) -L/usr/lib -I/usr/include -lXext -lX11 -lm -lz -o $(NAME)
+	$(CC) $(OBJS) $(CFLAGS) $(MLX_LIB) -L/usr/lib -I/usr/include -lXext -lX11 -lm -lz -lbsd -o $(NAME)
 
 $(MLX_LIB):
 	make -C $(MLX_DIR)
