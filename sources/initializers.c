@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 16:11:22 by darkless12        #+#    #+#             */
-/*   Updated: 2025/02/11 20:37:15 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/12 16:14:30 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,23 +41,32 @@ int	init_game_graph(t_all *all)
 	return (0);
 }
 
-int	init_each_tile(t_tile *tile)
+int	init_each_tile(t_tile *tile, int nbr)
 {
-	tile->addr = NULL;
-	tile->img = NULL;
-	tile->l = 0;
-	tile->h = 0;
-	tile->bpp = 0;
+	int i;
+
+	i = 0;
+	while (i < nbr)
+	{
+		tile[i].addr = NULL;
+		tile[i].img = NULL;
+		tile[i].line = 0;
+		tile[i].endian = 0;
+		tile[i].x = 0;
+		tile[i].y = 0;
+		tile[i].bpp = 0;
+		i++;
+	}
 	return (0);
 }
 
 int	init_tiles(t_all *all)
 {
-	init_each_tile(&all->exit);
-	init_each_tile(&all->floor);
-	init_each_tile(&all->nuke);
-	init_each_tile(&all->godjira);
-	init_each_tile(&all->wall);
+	init_each_tile(all->floor, 3);
+	init_each_tile(all->nuke, 2);
+	init_each_tile(all->gojira, 4);
+	init_each_tile(all->wall, 3);
+	init_each_tile(&all->exit, 1);
 	return (0);
 }
 

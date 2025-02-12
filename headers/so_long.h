@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 17:29:43 by darkless12        #+#    #+#             */
-/*   Updated: 2025/02/11 17:41:02 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/12 15:44:30 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct s_mlx
 	void	*win;
 
 	void	*img;
-	void	*addr;
+	char	*addr;
 	int		bpp;
 	int		endian;
 	int		line;
@@ -49,13 +49,14 @@ typedef struct s_mlx
 typedef struct s_tile
 {
 	void	*img;
-	void	*addr;
+	char	*addr;
 
 	int		bpp;
 	int		endian;
+	int		line;
 
-	int		l;
-	int		h;
+	int		x;
+	int		y;
 }	t_tile;
 
 typedef struct s_game
@@ -73,10 +74,10 @@ typedef struct s_all
 	t_plan		plan;
 	t_mlx		mlx;
 	t_game		game;
-	t_tile		floor;
-	t_tile		wall;
-	t_tile		godjira;
-	t_tile		nuke;
+	t_tile		floor[3];
+	t_tile		wall[3];
+	t_tile		gojira[4];
+	t_tile		nuke[2];
 	t_tile		exit;
 }	t_all;
 
