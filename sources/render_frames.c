@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 16:30:30 by darkless12        #+#    #+#             */
-/*   Updated: 2025/02/12 16:22:54 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/16 22:51:28 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ void	find_tile(t_all *all, int x, int y)
 		blend_image(all, &all->floor[sort % 3], x * 64, y * 64);
 	if (all->plan.map[y][x] == '1')
 		blend_image(all, &all->wall[sort % 3], x * 64, y * 64);
+	if (all->plan.map[y][x] == 'C')
+		blend_image(all, &all->nuke[0], x * 64, y * 64);
 }
 
 void	render_frames(t_all *all)
