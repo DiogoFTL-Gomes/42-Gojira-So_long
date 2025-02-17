@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 16:30:30 by darkless12        #+#    #+#             */
-/*   Updated: 2025/02/16 22:51:28 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/17 14:31:47 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,22 @@ void	blend_image(t_all *all, t_tile *tile, int len, int hei)
 void	find_tile(t_all *all, int x, int y)
 {
 	int sort;
+	char val;
 
+	val = all->plan.map[y][x];
 	sort = ((x * x) + (y * y * y));
-	if (all->plan.map[y][x] == '0')
-		blend_image(all, &all->floor[sort % 3], x * 64, y * 64);
-	if (all->plan.map[y][x] == '1')
+	if (val == '1')
 		blend_image(all, &all->wall[sort % 3], x * 64, y * 64);
-	if (all->plan.map[y][x] == 'C')
+	else if (val == '0' || val == '3')
+		blend_image(all, &all->floor[(val - '0') + (sort % 3)], x * 64, y * 64);
+	else if (val == 'C')
 		blend_image(all, &all->nuke[0], x * 64, y * 64);
+	else if (val == 'E' && all->plan.colect == all->game.nuke)
+		blend_image(all, &all->exit, x * 64, y * 64);
+	else
+		blend_image(all, &all->floor[sort % 3], x * 64, y * 64);
+	if (all->game.x == x && all->game.y == y)
+		blend_image(all, &all->gojira[all->game.dir], x * 64, y * 64);
 }
 
 void	render_frames(t_all *all)

@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 12:07:10 by darkless12        #+#    #+#             */
-/*   Updated: 2025/02/11 17:26:57 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/17 12:26:35 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,5 +116,6 @@ int	check_nav(t_all *all)
 	}
 	i = check_border(all, tester);
 	clean_array(tester);
+	all->plan.map[all->game.y][all->game.x] = '3';
 	return (i);
 }

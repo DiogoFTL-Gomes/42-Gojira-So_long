@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 17:29:43 by darkless12        #+#    #+#             */
-/*   Updated: 2025/02/12 15:44:30 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/17 12:40:04 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct s_game
 {
 	int	x;
 	int	y;
+	int	dir;
 	int nuke;
 	int last;
 }	t_game;
@@ -74,7 +75,7 @@ typedef struct s_all
 	t_plan		plan;
 	t_mlx		mlx;
 	t_game		game;
-	t_tile		floor[3];
+	t_tile		floor[6];
 	t_tile		wall[3];
 	t_tile		gojira[4];
 	t_tile		nuke[2];

@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 16:11:22 by darkless12        #+#    #+#             */
-/*   Updated: 2025/02/12 16:14:30 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/17 12:43:11 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	init_game_graph(t_all *all)
 {
 	all->game.last = 0;
 	all->game.nuke = 0;
+	all->game.dir = 0;
 	all->game.x = 0;
 	all->game.y = 0;
 	all->mlx.ptr = NULL;
@@ -62,7 +63,7 @@ int	init_each_tile(t_tile *tile, int nbr)
 
 int	init_tiles(t_all *all)
 {
-	init_each_tile(all->floor, 3);
+	init_each_tile(all->floor, 6);
 	init_each_tile(all->nuke, 2);
 	init_each_tile(all->gojira, 4);
 	init_each_tile(all->wall, 3);
