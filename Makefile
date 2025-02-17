@@ -14,6 +14,8 @@ SRCS =	sources/error_cleanup.c \
 		libft/ft_strlen.c \
 		libft/ft_strlcat.c \
 		libft/ft_strjoin.c \
+		libft/ft_putnbr_fd.c \
+		libft/ft_putchar_fd.c \
 		\
 		get_next_line/get_next_line.c \
 		get_next_line/get_next_line_utils.c 

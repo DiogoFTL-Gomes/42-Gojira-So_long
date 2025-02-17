@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 16:11:22 by darkless12        #+#    #+#             */
-/*   Updated: 2025/02/17 12:43:11 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/17 16:34:26 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ int	init_map(t_all *all)
 //inicia struct do mlx
 int	init_game_graph(t_all *all)
 {
-	all->game.last = 0;
 	all->game.nuke = 0;
 	all->game.dir = 0;
 	all->game.x = 0;
 	all->game.y = 0;
+	all->game.moves = 0;
 	all->mlx.ptr = NULL;
 	all->mlx.win = NULL;
 	all->mlx.addr = NULL;

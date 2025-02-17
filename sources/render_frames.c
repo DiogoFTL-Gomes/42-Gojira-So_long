@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 16:30:30 by darkless12        #+#    #+#             */
-/*   Updated: 2025/02/17 14:31:47 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/17 19:04:17 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ void	find_tile(t_all *all, int x, int y)
 		blend_image(all, &all->wall[sort % 3], x * 64, y * 64);
 	else if (val == '0' || val == '3')
 		blend_image(all, &all->floor[(val - '0') + (sort % 3)], x * 64, y * 64);
-	else if (val == 'C')
-		blend_image(all, &all->nuke[0], x * 64, y * 64);
+	else if (val == 'C' || val == 'D')
+		blend_image(all, &all->nuke[val - 'C'], x * 64, y * 64);
 	else if (val == 'E' && all->plan.colect == all->game.nuke)
 		blend_image(all, &all->exit, x * 64, y * 64);
 	else
