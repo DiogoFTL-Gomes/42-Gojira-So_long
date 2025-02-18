@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 17:29:43 by darkless12        #+#    #+#             */
-/*   Updated: 2025/02/17 19:04:20 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/18 14:48:29 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,10 +89,10 @@ int		got_error(char *msg);
 int		find_ncols(char *line);
 int		game_start(t_all *all);
 int		check_nav(t_all *all);
-void	close_it(t_all *all);
+int		close_it(t_all *all);
+int		render_frames(t_all *all);
 void	clean_array(char **array);
-void	clean_all(t_all *all);
+void	basic_clean(t_all *all);
 void	load_textures(t_all *all);
-void	render_frames(t_all *all);
 
 #endif

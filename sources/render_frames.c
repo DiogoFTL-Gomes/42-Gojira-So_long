@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 16:30:30 by darkless12        #+#    #+#             */
-/*   Updated: 2025/02/17 19:04:17 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/18 14:48:08 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	find_tile(t_all *all, int x, int y)
 		blend_image(all, &all->gojira[all->game.dir], x * 64, y * 64);
 }
 
-void	render_frames(t_all *all)
+int	render_frames(t_all *all)
 {
 	int	x;
 	int	y;
@@ -98,4 +98,5 @@ void	render_frames(t_all *all)
 	}
 	mlx_put_image_to_window(all->mlx.ptr, all->mlx.win, all->mlx.img, 0, 0);
 	mlx_destroy_image(all->mlx.ptr, all->mlx.img);
+	return (0);
 }

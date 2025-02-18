@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 18:33:55 by darkless12        #+#    #+#             */
-/*   Updated: 2025/02/17 20:11:00 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/18 16:17:12 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	end_game(t_all *all)
 {
-	write(1, "YOU WIN!!\n", 11);
 	render_frames(all);
+	write(1, "YOU WIN!!\n", 11);
 	close_it(all);
 }
 
@@ -65,9 +65,11 @@ int	game_start(t_all *all)
 	all->mlx.ptr = mlx_init();
 	all->mlx.win = mlx_new_window(all->mlx.ptr, all->plan.col * 64, \
 		all->plan.row * 64, "So Long");
+	mlx_do_key_autorepeatoff(all->mlx.ptr);
 	load_textures(all);
 	render_frames(all);
 	mlx_hook(all->mlx.win, 2, 1L << 0, handle_keys, all);
+	mlx_hook(all->mlx.win, 17, 0L, close_it, all);
 	mlx_loop(all->mlx.ptr);
 	return (0);
 }

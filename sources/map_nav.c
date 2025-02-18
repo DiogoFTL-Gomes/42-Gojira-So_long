@@ -6,7 +6,7 @@
 /*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 12:07:10 by darkless12        #+#    #+#             */
-/*   Updated: 2025/02/17 12:26:35 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/18 16:34:19 by darkless12       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,20 +72,14 @@ int	check_border(t_all *all, char **tester)
 	while (i < all->plan.col)
 	{
 		if (tester[0][i] != '1' || tester[all->plan.row - 1][i] != '1')
-		{
-			clean_array(tester);
 			return (got_error("Upper or lower margins are not a 1\n"));
-		}
 		i++;
 	}
 	i = 0;
 	while (i < all->plan.row)
 	{
 		if (tester[i][0] != '1' || tester[i][all->plan.col - 1] != '1')
-		{
-			clean_array(tester);
-			return (got_error("Side margins are not a 1"));
-		}
+			return (got_error("Side margins are not a 1\n"));
 		i++;
 	}
 	return (validate_map(all, tester));
