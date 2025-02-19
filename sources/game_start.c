@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_start.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ddiogo-f <ddiogo-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 18:33:55 by darkless12        #+#    #+#             */
-/*   Updated: 2025/02/18 16:17:12 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/19 11:08:17 by ddiogo-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	game_start(t_all *all)
 {
 	all->mlx.ptr = mlx_init();
 	all->mlx.win = mlx_new_window(all->mlx.ptr, all->plan.col * 64, \
-		all->plan.row * 64, "So Long");
+		all->plan.row * 64, "Gojira So Long");
 	mlx_do_key_autorepeatoff(all->mlx.ptr);
 	load_textures(all);
 	render_frames(all);

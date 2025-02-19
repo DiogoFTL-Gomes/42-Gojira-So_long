@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initializers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ddiogo-f <ddiogo-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 16:11:22 by darkless12        #+#    #+#             */
-/*   Updated: 2025/02/17 16:34:26 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/19 11:01:47 by ddiogo-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	init_game_graph(t_all *all)
 
 int	init_each_tile(t_tile *tile, int nbr)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < nbr)

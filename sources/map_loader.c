@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_loader.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ddiogo-f <ddiogo-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 14:18:53 by darkless12        #+#    #+#             */
-/*   Updated: 2025/02/11 16:24:29 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/19 11:04:35 by ddiogo-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,6 @@ int	load_map(t_all *all, char *fname)
 		i++;
 	}
 	close(fd);
-	// for (int i = 0; i < all->plan.rows; i++)	//isto tem que sair
-	// 	printf("%s", all->plan.map[i]);			//isto tb
-	// printf("\n");								//isto tb
 	return (0);
 }
 

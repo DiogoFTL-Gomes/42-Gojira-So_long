@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_nav.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ddiogo-f <ddiogo-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 12:07:10 by darkless12        #+#    #+#             */
-/*   Updated: 2025/02/18 16:34:19 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/19 11:04:00 by ddiogo-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,15 @@
 void	fill_map_nav(t_all *all, char **tester, int x, int y)
 {
 	if (x < 0 || x > all->plan.col || y < 0 || y > all->plan.row)
-		return;
+		return ;
 	if (tester[y][x] == '1' || tester[y][x] == 'X')
-		return;
+		return ;
 	if (tester[y][x] == 'P')
 	{
 		all->game.x = x;
 		all->game.y = y;
 	}
 	tester[y][x] = 'X';
-	// for (int i = 0; i < all->plan.rows; i++)	// remover
-	// 	printf("%s\n", tester[i]);				// remover
-	// printf("\n");								// remover
 	fill_map_nav(all, tester, x + 1, y);
 	fill_map_nav(all, tester, x - 1, y);
 	fill_map_nav(all, tester, x, y + 1);

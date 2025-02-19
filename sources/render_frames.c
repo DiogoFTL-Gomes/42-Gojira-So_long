@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   render_frames.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: darkless12 <darkless12@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ddiogo-f <ddiogo-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 16:30:30 by darkless12        #+#    #+#             */
-/*   Updated: 2025/02/18 14:48:08 by darkless12       ###   ########.fr       */
+/*   Updated: 2025/02/19 11:00:49 by ddiogo-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	get_pixel_color(char *addr, int x, int y, int line, int bpp)
+int	get_pixel_color(t_tile *tile, int x, int y)
 {
 	int	offset;
 
-	offset = (y * line) + (x * (bpp / 8));
-	return (*(int *)(addr + offset));
+	offset = (y * tile->line) + (x * (tile->bpp / 8));
+	return (*(int *)(tile->addr + offset));
 }
 
 void	put_pixel(t_all *all, int x, int y, int color)
@@ -44,8 +44,7 @@ void	blend_image(t_all *all, t_tile *tile, int len, int hei)
 		x = 64 - tile->x;
 		while (x < tile->x)
 		{
-			color = get_pixel_color(tile->addr, x + tile->x - 64, \
-				y + tile->y - 64, tile->line, tile->bpp);
+			color = get_pixel_color(tile, x + tile->x - 64, y + tile->y - 64);
 			alpha = (color >> 24) & 0xFF;
 			if (alpha != 0xFF)
 				put_pixel(all, len + x, hei + y, color);
@@ -57,8 +56,8 @@ void	blend_image(t_all *all, t_tile *tile, int len, int hei)
 
 void	find_tile(t_all *all, int x, int y)
 {
-	int sort;
-	char val;
+	int		sort;
+	char	val;
 
 	val = all->plan.map[y][x];
 	sort = ((x * x) + (y * y * y));
