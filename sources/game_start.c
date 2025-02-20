@@ -6,7 +6,7 @@
 /*   By: ddiogo-f <ddiogo-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 18:33:55 by darkless12        #+#    #+#             */
-/*   Updated: 2025/02/19 11:08:17 by ddiogo-f         ###   ########.fr       */
+/*   Updated: 2025/02/20 12:13:28 by ddiogo-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,13 @@ void	move_it(t_all *all, int x, int y, int d)
 			all->plan.map[all->game.y][all->game.x] = 'D';
 			all->game.nuke += 1;
 		}
-		if (all->plan.map[all->game.y][all->game.x] == 'E')
+		if (all->plan.map[all->game.y][all->game.x] == 'E' || \
+			all->plan.map[all->game.y][all->game.x] == 'F')
 		{
 			if (all->plan.colect == all->game.nuke)
 				end_game(all);
+			else
+				all->plan.map[all->game.y][all->game.x] = 'F';
 		}
 		render_frames(all);
 		ft_putnbr_fd(all->game.moves, 1);
