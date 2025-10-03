@@ -71,7 +71,6 @@ How to play:
 ## Credits
 
 Developed by [DiogoFTL-Gomes]((https://github.com/DiogoFTL-Gomes))
-license
 
 ---
 
